@@ -33,7 +33,7 @@ module CD74HCT191(AD,DnU,nLOAD,nCTEN,CLK,MM,QAD,nRCO);
   always @(AD or DnU or nLOAD or nCTEN or CLK) begin
     if(~(nLOAD & nCTEN)) begin
       if(~nLOAD)
-        QAD = AD;
+        QAD <= AD;
       else if (MM & ~CLK)
         nRCO = 0;
       else

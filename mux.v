@@ -10,7 +10,8 @@
 module MUX(B,A,C0,C1,C2,C3,nG,Y);
 	input B,A,C0,C1,C2,C3,nG;
 	output reg Y;
-	always@(B or A or C0 or C1 or C2 or C3 or nG) begin
+//	always@(B or A or C0 or C1 or C2 or C3 or nG) begin
+	always@(*) begin
 		if(nG)
 			Y = 1'bz;
 		else if(~B & ~A)
@@ -22,6 +23,7 @@ module MUX(B,A,C0,C1,C2,C3,nG,Y);
 		else if(B & A)
 			Y = C3;
 	end
+/*
 	specify
 		specparam tPLHData = 6;
 		specparam tPHLData = 6;
@@ -36,6 +38,7 @@ module MUX(B,A,C0,C1,C2,C3,nG,Y);
 		(B,A *> Y) =(tPLHSelc,tPHLSelc);
 		(nG => Y) = (0,0,tPLZ,tPZH,tPHZ,tPZL);
 	endspecify
+*/
 endmodule
 		
 
